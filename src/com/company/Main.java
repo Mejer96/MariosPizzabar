@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Main {
 
@@ -13,7 +12,7 @@ public class Main {
 
         while (loop) {
             int userInput = SystemClass.gameMenu();
-            // 1 to register order. 2 to show menu. 3 to remove order. 4 to show orders. 5 to show stats. 6 to show income.
+            // 1 to register order. 2 to show menu. 3 to remove order. 4 to show orders. 5 to show stats. 6 to show income. 7 to exit program
             switch (userInput) {
                 case 1:
                     int numberOfOrders = SystemClass.numberOfOrders();
@@ -37,20 +36,20 @@ public class Main {
                     SystemClass.showMenu();
                     break;
                 case 3:
-                    activeOrders = DataArrays.removeOrder(activeOrders);
+                    activeOrders = DataArraysAndArraylists.removeOrder(activeOrders);
                     break;
                 case 4:
                     ArrayList<PizzaClass> sortedOrders = SystemClass.sortOrdersByTime(activeOrders);
                     for (int i = 0; i < sortedOrders.size(); i++) {
-                        System.out.println(sortedOrders.get(i).name + ":");
-                        System.out.println("Scheduled to be ready at: " + sortedOrders.get(i).scheduledToReadable);
+                        System.out.println(sortedOrders.get(i).getName() + ":");
+                        System.out.println("Scheduled to be ready at: " + sortedOrders.get(i).getScheduledToReadable());
                     }
                     break;
                 case 5:
-                    DataArrays.mostPopularOrders(orderHistory);
+                    DataArraysAndArraylists.showStats(orderHistory);
                     break;
                 case 6:
-                    DataArrays.getIncome(orderHistory);
+                    DataArraysAndArraylists.getIncome(orderHistory);
                     break;
                 case 7:
                     System.out.println("Exiting program.");

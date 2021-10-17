@@ -1,16 +1,16 @@
 package com.company;
 
 public class PizzaClass {
-    int number;
-    String name;
-    String topping;
-    double scheduledTo;
-    double price;
-    String customer;
-    String customerID;
-    String scheduledToReadable;
+    private int number;
+    private String name;
+    private String topping;
+    private double scheduledTo;
+    private int price;
+    private String customer;
+    private String customerID;
+    private String scheduledToReadable;
 
-    PizzaClass(int number, String name, String topping, double scheduledTo, double price, String customer, String scheduledToReadable, String customerID) {
+    PizzaClass(int number, String name, String topping, double scheduledTo, int price, String customer, String scheduledToReadable, String customerID) {
         this.number = number;
         this.name = name;
         this.topping = topping;
@@ -24,5 +24,38 @@ public class PizzaClass {
     public String toString() {
         return number + ". " + name +": " + topping + "\nScheduled to: " + scheduledToReadable + ". Price: " + price + " dkk.";
     }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public String getTopping() {
+        return topping;
+    }
+
+    public double getScheduledTo() {
+        return scheduledTo;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getCustomer() {
+        return customer;
+    }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public String getScheduledToReadable() {
+        return scheduledToReadable;
+    }
+
+
 }
 

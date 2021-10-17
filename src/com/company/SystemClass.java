@@ -56,6 +56,7 @@ public class SystemClass {
     }
 
     public static String generateCustomerID() {
+        // Generates a five character customerID from letters and numbers
         Random random = new Random();
         int length = 5;
         String characters = "abcdefghijklmnopqrstuvxyzæå123456789";
@@ -84,7 +85,7 @@ public class SystemClass {
         System.out.println("Please enter the amount of orders u just received from the customer: ");
 
         while (whileLoop) {
-            System.out.println(">");
+            System.out.print(">");
             try {
             userInput = scanner.nextInt();
             whileLoop = false;
@@ -96,7 +97,7 @@ public class SystemClass {
     }
 
     public static int enterPizzaNumber() {
-        // prompts user to enter the pizza's number on the menu.
+        // prompts user to enter the pizza's number on the menu. Cant be lower than 1 or higher than 14. (14 pizza on the menu)
         Scanner scanner = new Scanner(System.in);
         int userInputNumberOfOrders;
         int order = 0;
@@ -107,7 +108,7 @@ public class SystemClass {
 
         while (whileLoop) {
 
-            System.out.println(">");
+            System.out.print(">");
             try {
                 order = scanner.nextInt();
             } catch (InputMismatchException e) {
@@ -126,7 +127,7 @@ public class SystemClass {
 
 
     public static String scheduledAt() {
-        // prompts the user to input the time when the order should be ready. Then modify the minutes into decimals, so the scheduled time can be compared properly.
+        // prompts the user to input the time when the order should be ready. Converts into a string and creates a string that represent the time.
         Scanner scanner = new Scanner(System.in);
         boolean whileLoop = true;
         int hours = 0;
@@ -179,6 +180,7 @@ public class SystemClass {
     }
 
     public static double scheduledToNumericalValue(String scheduledTo) {
+        // convert time to string so its possible to compare scheduled times mathematically.
         String[] array = scheduledTo.split("\\.");
         double hoursToDouble = Double.parseDouble(array[0]);
         double minutesToDouble = Double.parseDouble(array[1]);
@@ -188,7 +190,7 @@ public class SystemClass {
     }
 
     public static PizzaClass addPizzaToOrders(int orderNumber, double scheduledAt, String scheduledAtReadable, String customer, String customerID) {
-        // method compares orderNumber from user with the menu, creates necessary variables to create a PizzaClass and creates an object of that class.
+        // method compares orderNumber from user with the menu, creates necessary variables to create a PizzaClass and creates an object of that class using parameters.
         String name = null;
         String topping = null;
         int price = 0;
@@ -268,11 +270,11 @@ public class SystemClass {
         return pizza;
     }
 
-    public static ArrayList<PizzaClass> sortOrdersByTime(ArrayList<PizzaClass> array) {
+    public static ArrayList<PizzaClass> sortOrdersByTime(ArrayList<PizzaClass> arraylist) {
         // comparator method to sort the arraylist by scheduled time in ascending order.
-        Collections.sort(array, new SortByTime());
+        Collections.sort(arraylist, new MyComparator());
 
-        return array;
+        return arraylist;
     }
 
 
